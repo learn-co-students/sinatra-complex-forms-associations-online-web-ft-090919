@@ -1,1 +1,22 @@
-index.erb
+<%# index.erb %>
+
+<h1>Pets</h1>
+
+<br />
+
+<% if @pets %>
+
+<% @pets.each do |pet| %>
+
+  <%= pet.name %><br />
+
+<% end %>
+
+<% else %>
+
+  <h1>No Pets Exist!</h1>
+
+  <br /><br /><br />
+
+  <a href="/pets/new">Create New Pet</a>
+<% end %>

@@ -1,1 +1,25 @@
-show.erb
+<%# show.erb %>
+
+<% if @pet %>
+
+  <h1>Pet Name: <%= @pet.name %></h1>
+
+  <% if @pet.owner %>
+
+    <h4>Owners Name: <%= pet.owner.name %></h4>
+
+  <% else %>
+
+    <h4>This pet has no owners yet!</h4>
+
+  <% end %>
+
+<% else %>
+
+  <h1>Pet Doesn't Exist!</h1>
+
+  <br /><br />
+
+  <a href="/pets/New">Create New Pet</a>
+
+<% end %>
