@@ -34,10 +34,9 @@ class PetsController < ApplicationController
     params.delete("_method")
     @pet = Pet.find(params[:id])
     @pet.update(params[:pet])
-    if !params[:new_owner][:name].empty?
-      @pet.owner = Owner.create(name: params[:new_owner][:name])
-    elsif !params[:owner][:name].empty?
-      @pet.owner = Owner.find_by(params[:owner])
+    binding.pry
+    if !params[:owner][:name].empty?
+      @pet.owner = Owner.create(name: params[:owner][:name])
     end
     @pet.save
     redirect to "pets/#{@pet.id}"
