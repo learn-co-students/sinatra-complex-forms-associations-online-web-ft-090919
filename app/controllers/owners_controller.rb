@@ -18,11 +18,6 @@ class OwnersController < ApplicationController
     redirect "owners/#{@owner.id}"
   end
 
-  get '/owners/:id/edit' do
-    @owner = Owner.find(params[:id])
-    erb :'/owners/edit'
-  end
-
   get '/owners/:id' do
     @owner = Owner.find(params[:id])
     erb :'/owners/show'
@@ -41,4 +36,11 @@ class OwnersController < ApplicationController
     redirect "owners/#{@owner.id}"
 
   end
+
+  get '/owners/:id/edit' do
+    @pets = Pet.all
+    @owner = Owner.find(params[:id])
+    erb :'/owners/edit'
+  end
+
 end
